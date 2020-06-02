@@ -1,1 +1,38 @@
+let bookmakrimg = document.querySelector("#bookmakrimg");
+let home_img = document.querySelector("#home-img");
+let feedimg = document.querySelector("#feedimg");
+let cnt=0;
 
+function book_green(){
+	if(cnt==1){
+		bookmakrimg.style.opacity= "1";
+		feedimg.style.opacity= "1";
+		home_img.style.opacity = "1";
+		cnt=0;
+	}
+	home_img.style.opacity= ".4";
+	feedimg.style.opacity= ".4";
+	cnt++;
+}
+function home_green(){
+	if(cnt==1){
+		bookmakrimg.style.opacity= "1";
+		feedimg.style.opacity= "1";
+		home_img.style.opacity = "1";
+		cnt=0;
+	}
+	bookmakrimg.style.opacity= ".4";
+	feedimg.style.opacity= ".4";
+	cnt++;
+}
+function feed_green(){
+	if(cnt==1){
+		bookmakrimg.style.opacity= "1";
+		feedimg.style.opacity= "1";
+		home_img.style.opacity = "1";
+		cnt=0;
+	}
+	home_img.style.opacity= ".4";
+	bookmakrimg.style.opacity= ".4";
+	cnt++;
+}
