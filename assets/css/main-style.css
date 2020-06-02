@@ -165,6 +165,6 @@
     opacity: .5;
 }
 
-.bottomNav .selectedMenu {
-    opacity: 1.0;
+.selectedMenu {
+    opacity: 1.0 !important;
 }
