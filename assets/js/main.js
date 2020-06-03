@@ -1,10 +1,15 @@
 (() => {
 	let options = {
-		center: new kakao.maps.LatLng(33.450701, 126.570667),
+		center: new kakao.maps.LatLng(37.5536, 126.9696),
 		level: 3,
 		draggable: true,
 		scrollwheel: true
 	};
+
+	navigator.geolocation.getCurrentPosition(res => {
+		map.setCenter(new kakao.maps.LatLng(res.coords.latitude, res.coords.longitude));
+	}, () => {
+	});
 
 	let selectedMenu = 2; // Home btn
 	window.addEventListener('DOMContentLoaded', () => {
