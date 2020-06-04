@@ -28,7 +28,7 @@
 		}
 
 		window.map = new kakao.maps.Map(document.querySelector("#map"), options);
-
+		let slide = document.querySelector(".slide");
 		const open = async () => {
 			let target = window.innerHeight
 				- calcHeight(document.querySelector("header > .topNav"))
@@ -37,19 +37,23 @@
 				- calcHeight(document.querySelector(".bottomNav")) + 15;
 			let origin = document.querySelector(".scroll").scrollHeight;
 
-			for (let i = origin; i <= target; i++) {
+			for (let i = origin; i <= target+10; i++) {
 				if (i % 20 === 0) await new Promise(r => setTimeout(() => r(), 1));
 				document.querySelector(".scroll").style.height = `${i}px`;
 			}
+			slide.style.boxShadow = "0px 0px 0px";
 		}
 
 		let expand = false;
 		let min_height = document.querySelector(".scroll").scrollHeight;
 		document.querySelector(".slider").addEventListener('click', async function () {
-			if (!expand) await open();
+			if (!expand)  await open();	
+			
 			else for (let i = document.querySelector(".scroll").scrollHeight; i >= min_height; i--) {
 				if (i % 20 === 0) await new Promise(r => setTimeout(() => r(), 1));
 				document.querySelector(".scroll").style.height = `${i}px`;
+				
+				slide.style.boxShadow = "0 -5px 5px 0px rgba(0, 0, 0, 0.5)";
 			}
 			console.log(expand)
 
