@@ -121,6 +121,7 @@
 }
 
 .scroll {
+    transition: .3s;
     /*스크롤 컨텐츠*/
 }
 
