@@ -37,7 +37,7 @@
 				- calcHeight(document.querySelector(".bottomNav")) + 15;
 			let origin = document.querySelector(".scroll").scrollHeight;
 
-			for (let i = origin; i <= target+10; i++) {
+			for (let i = origin; i <= target+3; i++) {
 				if (i % 20 === 0) await new Promise(r => setTimeout(() => r(), 1));
 				document.querySelector(".scroll").style.height = `${i}px`;
 			}
