@@ -28,7 +28,20 @@
 		}
 
 		window.map = new kakao.maps.Map(document.querySelector("#map"), options);
+		let slider = document.querySelector(".slider");
 		let slide = document.querySelector(".slide");
+		slider.addEventListener('touchmove', (event) => {
+			let target = window.innerHeight
+				- calcHeight(document.querySelector("header > .topNav"))
+				- calcHeight(document.querySelector(".slider"))
+				- calcHeight(document.querySelector(".search-box"))
+				- calcHeight(document.querySelector(".bottomNav")) + 15;
+			let origin = document.querySelector(".scroll").scrollHeight;
+			
+			let y = event.touches[0].clientY;
+			if (y<18)	 return 0;
+			slide.style.paddingBottom = target-y + "px";
+		/*
 		const open = async () => {
 			let target = window.innerHeight
 				- calcHeight(document.querySelector("header > .topNav"))
@@ -59,7 +72,7 @@
 
 			expand = !expand;
 		});
-
+		*/
 		window.addEventListener('resize', () => {
 			if (expand) open();
 		});
