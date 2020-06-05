@@ -16,6 +16,7 @@
 	});
 
 	window.addEventListener('DOMContentLoaded', () => {
+		
 		let i = 0;
 		let selectedMenu = 2; // Home btn
 		for (let e of document.querySelectorAll(".bottomNav > ul > li")) {
@@ -26,8 +27,8 @@
 				selectedMenu = menu;
 			};
 		}
-
 		window.map = new kakao.maps.Map(document.querySelector("#map"), options);
+		
 		let slider = document.querySelector(".slider");
 		let slide = document.querySelector(".slide");
 		slider.addEventListener('touchmove', (event) => {
@@ -41,7 +42,10 @@
 			let y = event.touches[0].clientY;
 			if (y<18)	 return 0;
 			slide.style.paddingBottom = target-y + "px";
+		});
+		
 		/*
+		let slide = document.querySelector(".slide");
 		const open = async () => {
 			let target = window.innerHeight
 				- calcHeight(document.querySelector("header > .topNav"))
@@ -71,8 +75,8 @@
 			console.log(expand)
 
 			expand = !expand;
-		});
-		*/
+		});*/
+
 		window.addEventListener('resize', () => {
 			if (expand) open();
 		});
